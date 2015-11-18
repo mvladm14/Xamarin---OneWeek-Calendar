@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="OneWeekCalendar.views.CalendarDayView">
+	<ContentView.Content>
+		<StackLayout BackgroundColor="{Binding BackgroundColor}">
+			<Label x:Name="LabelDate" Text="{Binding Date.Day}" />
+			<ListView x:Name="DayListView">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ViewCell.ContextActions>
+								<MenuItem Clicked="OnEdit" CommandParameter="{Binding .}" Text="More" />
+								<MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+							</ViewCell.ContextActions>
+							<ViewCell.View>
+								<StackLayout Orientation="Horizontal">
+									<StackLayout>
+										<Label Text="{Binding Name}">
+										</Label>
+										<Label Text="{Binding StartTime, StringFormat='{0:T}'}">
+										</Label>
+									</StackLayout>
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentView.Content>
+</ContentView>

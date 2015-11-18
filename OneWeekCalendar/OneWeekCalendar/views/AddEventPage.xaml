@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:system="clr-namespace:System;assembly=System.Runtime" x:Class="OneWeekCalendar.views.AddEventPage">
+	<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+		<Entry Text="Name" x:Name="Name" VerticalOptions="CenterAndExpand" />
+		<Entry Text="Description" x:Name="Description" VerticalOptions="CenterAndExpand" />
+		<Entry Text="Location" x:Name="Location" VerticalOptions="CenterAndExpand" />
+		<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+			<Label Text="Start Date" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+			<DatePicker x:Name="StartDate" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Date="{x:Static system:DateTime.Now}">
+				<DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+				<DatePicker.MinimumDate>
+					<system:DateTime x:FactoryMethod="Parse">
+						<x:Arguments>
+							<x:String>Jan 1 2000</x:String>
+						</x:Arguments>
+					</system:DateTime>
+				</DatePicker.MinimumDate>
+				<DatePicker.MaximumDate>
+					<system:DateTime x:FactoryMethod="Parse">
+						<x:Arguments>
+							<x:String>Dec 31 2050</x:String>
+						</x:Arguments>
+					</system:DateTime>
+				</DatePicker.MaximumDate>
+			</DatePicker>
+			<Label Text="End Date" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+			<DatePicker x:Name="EndDate" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Date="{x:Static system:DateTime.Now}">
+				<DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+				<DatePicker.MinimumDate>
+					<system:DateTime x:FactoryMethod="Parse">
+						<x:Arguments>
+							<x:String>Jan 1 2000</x:String>
+						</x:Arguments>
+					</system:DateTime>
+				</DatePicker.MinimumDate>
+				<DatePicker.MaximumDate>
+					<system:DateTime x:FactoryMethod="Parse">
+						<x:Arguments>
+							<x:String>Dec 31 2050</x:String>
+						</x:Arguments>
+					</system:DateTime>
+				</DatePicker.MaximumDate>
+			</DatePicker>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+			<Label Text="Start Time" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+			<TimePicker x:Name="StartTime" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
+			<Label Text="End Time" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+			<TimePicker x:Name="EndTime" HorizontalOptions="EndAndExpand" VerticalOptions="Center" />
+		</StackLayout>
+		<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+			<Label Text="Priority" VerticalOptions="CenterAndExpand" />
+			<Slider x:Name="Priority" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Maximum="5" Minimum="1" />
+		</StackLayout>
+		<Button Text="Add event" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="OnAddEventButtonClicked" />
+	</StackLayout>
+</ContentPage>

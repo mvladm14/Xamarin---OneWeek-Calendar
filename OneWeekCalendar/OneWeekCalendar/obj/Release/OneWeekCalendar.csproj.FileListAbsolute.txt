@@ -1,0 +1,14 @@
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\OneWeekCalendar.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\OneWeekCalendar.pdb
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\Newtonsoft.Json.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\Xamarin.Forms.Core.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\Xamarin.Forms.Platform.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\Xamarin.Forms.Xaml.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\Newtonsoft.Json.xml
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\Xamarin.Forms.Core.xml
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\bin\Release\Xamarin.Forms.Xaml.xml
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\obj\Release\OneWeekCalendar.views.CalendarPage.xaml.g.cs
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\obj\Release\OneWeekCalendar.views.CalendarDayView.xaml.g.cs
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\obj\Release\OneWeekCalendar.views.AddEventPage.xaml.g.cs
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\obj\Release\OneWeekCalendar.dll
+C:\Users\Vlad\Documents\Visual Studio 2015\Projects\OneWeekCalendar\OneWeekCalendar\OneWeekCalendar\obj\Release\OneWeekCalendar.pdb
