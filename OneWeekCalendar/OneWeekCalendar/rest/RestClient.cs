@@ -24,9 +24,12 @@ namespace OneWeekCalendar.rest
             {
                 var content = await response.Content.ReadAsStringAsync();
                 items = JsonConvert.DeserializeObject<List<Calendar>>(content);
+
             }
             return items;
         }
+
+
 
         public static async Task<Calendar> GetCalendar(string calendarId)
         {
@@ -61,5 +64,48 @@ namespace OneWeekCalendar.rest
 
             return responeEvent;
         }
+
+		public static async Task<Event> DeleteEvent(Event calEvent)
+		{
+			var uri = new Uri(url + "/events/" + calEvent._id);
+			Event responseEvent = null;
+
+			var response = await new HttpClient().DeleteAsync(uri);
+
+			if (response.IsSuccessStatusCode)
+			{
+				var reponseContent = await response.Content.ReadAsStringAsync();
+				responseEvent = JsonConvert.DeserializeObject<Event>(reponseContent);
+			}
+
+			return responseEvent;
+		}
+
+		public static async Task<Event> ModifyEvent(Event calEvent)
+		{
+			var uri = new Uri(url + "/events/" + calEvent._id);
+			Event responseEvent = null;
+
+			var json = JsonConvert.SerializeObject(calEvent, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+			var content = new StringContent(json, Encoding.UTF8, "application/json");
+			var response = await new HttpClient().PutAsync(uri,content);
+
+			if (response.IsSuccessStatusCode)
+			{
+				var reponseContent = await response.Content.ReadAsStringAsync();
+				responseEvent = JsonConvert.DeserializeObject<Event>(reponseContent);
+			}
+
+			return responseEvent;
+		}
+
+
+
+		public static async Task<bool> Synchronize()
+		{
+			var uri = new Uri(url + "synchronize");
+			var response = await new HttpClient().GetAsync(uri);
+			return response.IsSuccessStatusCode;
+		}
     }
 }

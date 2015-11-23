@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using OneWeekCalendar.model;
 
 namespace OneWeekCalendar.command
 {
     public interface ICommand
     {
-        void Execute();
+		Task<Event> Execute();
     }
 }

@@ -66,6 +66,13 @@
       <DependentUpon>CalendarDayView.xaml</DependentUpon>
     </Compile>
     <Compile Include="model\CalendarDayViewModel.cs" />
+    <Compile Include="command\DeleteEventCommand.cs" />
+    <Compile Include="views\EditEventPage.xaml.cs">
+      <DependentUpon>EditEventPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="command\EditEventCommand.cs" />
+    <Compile Include="command\SynchronizeCommand.cs" />
+    <Compile Include="views\SynchronizePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -76,6 +83,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="views\CalendarDayView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\EditEventPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

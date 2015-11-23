@@ -12,15 +12,17 @@ namespace OneWeekCalendar.command
     {
         public Event CalEvent { get; set; }
 
-		public override async void Execute()
+		public override async Task<Event> Execute()
         {
-			if (CalEvent == null) return;
+			if (CalEvent == null)
+				return null;
 
             var calendars = await RestClient.GetCalendars();
             var calendar = calendars.Find(c => c.Name.Equals("tttt", StringComparison.CurrentCultureIgnoreCase));
             Event calEvent = await RestClient.PostEvent(CalEvent, calendar);
 			Debug.WriteLine ("Post sent successfully");
 			Debug.WriteLine ("Received back " + calEvent.Name);
+			return calEvent;
 		}
     }
 }

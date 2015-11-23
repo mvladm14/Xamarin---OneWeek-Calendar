@@ -12,20 +12,25 @@ namespace OneWeekCalendar.views
         {
             InitializeComponent();
             _controller = new CalendarPageController();
-            UpdateWithWeekDays(Grid);
-            UpdateWithEvents(Grid);
+            UpdateWithWeekDays();
+            UpdateWithEvents();
         }
 
-        private void UpdateWithWeekDays(Grid grid)
+        private void UpdateWithWeekDays()
         {
 			Debug.WriteLine ("UpdateWithWeekDays");
-            _controller.UpdateWithWeekDays(grid);
+			_controller.UpdateWithWeekDays(Grid);
 		}
 
-		private void UpdateWithEvents(Grid grid)
+		public void UpdateWithEvents()
 		{
 			Debug.WriteLine ("UpdateWithEvents");
-			_controller.UpdateWithEvents(grid);
+			_controller.UpdateWithEvents(Grid);
+		}
+
+		public void ClearAllEventsFromUI()
+		{
+			_controller.ClearAllEventsFromUI (Grid);
 		}
     }
 }

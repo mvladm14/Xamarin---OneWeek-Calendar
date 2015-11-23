@@ -5,21 +5,26 @@ namespace OneWeekCalendar.factory
 {
 	public class CommandFactory : IFactory<ICommand>
 	{
-		public static readonly string ChooseAction = "Choose action:";
-		public static readonly string Cancel = "Cancel:";
-		public static readonly string Clear = "Clear all events";
-		public static readonly string AddEvent = "Add event";
+		public const string Delete = "Delete";
+		public const string AddEvent = "Add event";
+		public const string EditEvent = "Edit event";
+		public const string Synchronize="Synchcronize";
 
 		public ICommand Create (string action)
 		{
 			ICommand command = null;
 			switch (action) {
-			case "Cancel":
+			case Delete:
+				command = new DeleteEventCommand ();
 				break;
-			case "Clear all events":
-				break;
-			case "Add event":
+			case AddEvent:
 				command = new CreateEventCommand ();
+				break;
+			case EditEvent:
+				command = new EditEventCommand ();
+				break;
+			case Synchronize:
+				command = new SynchronizeCommand ();
 				break;
 			}
 			return command;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
+using OneWeekCalendar.model;
+using OneWeekCalendar.factory;
 
 namespace OneWeekCalendar.views
 {
@@ -21,12 +23,20 @@ namespace OneWeekCalendar.views
 
 		public async void OnEdit (object sender, EventArgs e) {
 			var mi = ((Xamarin.Forms.MenuItem)sender);
-			Debug.WriteLine("Edit Context Action clicked: " + mi.CommandParameter);
+			var calEvent = mi.CommandParameter as Event;
+			this.Navigation.PushAsync (new EditEventPage (calEvent));
 		}
 
 		public async void OnDelete (object sender, EventArgs e) {
 			var mi = ((Xamarin.Forms.MenuItem)sender);
-			Debug.WriteLine("Delete Context Action clicked: " + mi.CommandParameter);
+			var calEvent = mi.CommandParameter as Event;
+
+			var command = new CommandFactory ().Create (CommandFactory.Delete);
+			if (command is DeleteEventCommand) {
+				(command as DeleteEventCommand).CalEvent = calEvent;
+				var deletedEvent = await command.Execute ();
+				CalendarDayViewModel.Events.Remove (calEvent);
+			}
 		}
 	}
 }

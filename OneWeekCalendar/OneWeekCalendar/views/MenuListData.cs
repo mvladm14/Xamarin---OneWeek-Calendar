@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using OneWeekCalendar.command;
+using OneWeekCalendar.factory;
 
 namespace OneWeekCalendar.views
 {
@@ -22,13 +24,6 @@ namespace OneWeekCalendar.views
 				TargetType = typeof(SynchronizePage)
 			});
 		}
-	}
-
-	public class SynchronizePage : ContentPage
-	{
-		public SynchronizePage ()
-        {            
-        }
 	}
 }
 

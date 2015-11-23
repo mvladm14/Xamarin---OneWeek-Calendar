@@ -4,11 +4,24 @@ using OneWeekCalendar.rest;
 using OneWeekCalendar.views;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using OneWeekCalendar.model;
+using System.Collections.Generic;
 
 namespace OneWeekCalendar.controller
 {
 	public class CalendarPageController
 	{
+		public void ClearAllEventsFromUI(Grid grid)
+		{
+			foreach (var child in grid.Children) {
+				if (child is CalendarDayView) {
+					var cdv = child as CalendarDayView;
+					cdv.CalendarDayViewModel.Events.Clear ();
+				}
+			}
+		}
+
+
 		public void UpdateWithWeekDays (Grid grid)
 		{
 			DateTime now = DateTime.Now.ToLocalTime ();
@@ -33,7 +46,7 @@ namespace OneWeekCalendar.controller
 			var calendars = await RestClient.GetCalendars ();
 
 			var Calendar = calendars.Find (c => c.Name.Equals ("tttt", StringComparison.CurrentCultureIgnoreCase));
-
+			updatePriority (Calendar.Events);
 			foreach (var calEvent in Calendar.Events) {
 				if (IsInSameWeek (calEvent.StartTime)) {
 					foreach (var child in grid.Children) {
@@ -48,6 +61,19 @@ namespace OneWeekCalendar.controller
 			}
 		}
 
+		public void updatePriority(IList<Event> events){
+			foreach (Event calEvent in events)
+			{
+				if (("HIGH").Equals(calEvent.Priority))
+				{
+					calEvent.Priority = "5";
+				}
+				else
+				{
+					calEvent.Priority = "2";
+				}
+			}
+		}
 		private bool IsInSameWeek (DateTime dt)
 		{
 			DateTime now = DateTime.Now;

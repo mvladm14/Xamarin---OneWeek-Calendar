@@ -1,5 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
+using OneWeekCalendar.model;
+using OneWeekCalendar.factory;
+using System.Threading.Tasks;
 
 namespace OneWeekCalendar.views
 {
@@ -13,12 +16,27 @@ namespace OneWeekCalendar.views
 
 			Master = menuPage;
 
-            Detail = new NavigationPage (new CalendarPage()); 
-        }
+			Detail = new NavigationPage (new CalendarPage ()); 
+		}
 
-		public void NavigateTo (MenuItem menu)
+		public async void NavigateTo (MenuItem menu)
 		{
-			Page displayPage = (Page)Activator.CreateInstance (menu.TargetType);
+			if (menu.TargetType == typeof(SynchronizePage)) {
+				var command = new CommandFactory ().Create (CommandFactory.Synchronize);
+				command.Execute ();
+
+				await Task.Delay(2000);
+
+				var calendarPage = (Detail as NavigationPage).CurrentPage as CalendarPage;
+				calendarPage.ClearAllEventsFromUI ();
+				calendarPage.UpdateWithEvents ();
+				IsPresented = false;
+			} 
+		}
+
+		public void NavigateTo (MenuItem menu, Event editEvent)
+		{
+			Page displayPage = (Page)Activator.CreateInstance (menu.TargetType, editEvent);
 
 			Detail = new NavigationPage (displayPage);
 

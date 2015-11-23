@@ -14,7 +14,7 @@ namespace OneWeekCalendar.views
 			InitializeComponent ();
 		}
 
-		private void OnAddEventButtonClicked (object sender, EventArgs e)
+		private async void  OnAddEventButtonClicked (object sender, EventArgs e)
 		{
 			var newEvent = new Event {
 				Name = Name.Text,
@@ -28,7 +28,8 @@ namespace OneWeekCalendar.views
 			var command = new CommandFactory ().Create (CommandFactory.AddEvent);
 			if (command is CreateEventCommand) {
 				(command as CreateEventCommand).CalEvent = newEvent;
-				command.Execute ();
+				await command.Execute ();
+				App.RootPage.NavigateTo (new MenuItem { TargetType = typeof(CalendarPage) });
 			}
 		}
 	}

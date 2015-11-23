@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using System.Collections.Generic;
 using OneWeekCalendar.model;
+using System.Collections.ObjectModel;
 
 namespace OneWeekCalendar
 {
@@ -10,11 +11,11 @@ namespace OneWeekCalendar
 	{
 		private DateTime _date;
 		private Color _backgroundColor;
-		private List<Event> _events;
+		private ObservableCollection<Event> _events;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		public List<Event> Events 
+		public ObservableCollection<Event> Events 
 		{ 
 			get 
 			{ 
@@ -55,7 +56,7 @@ namespace OneWeekCalendar
 
 		public CalendarDayViewModel()
 		{
-			_events = new List<Event> ();
+			_events = new ObservableCollection<Event> ();
 		}
 
 		protected virtual void OnPropertyChanged(string property)
