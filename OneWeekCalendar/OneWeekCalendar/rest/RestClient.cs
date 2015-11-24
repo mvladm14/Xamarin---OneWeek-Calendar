@@ -11,7 +11,7 @@ namespace OneWeekCalendar.rest
 {
     public class RestClient
     {
-        private static readonly string url = "http://10.0.2.2:1337/api/v1/calendars/";
+        private static readonly string url = "http://130.233.42.112:8080/api/v1/calendars/";
 
         public static async Task<List<Calendar>> GetCalendars()
         {
